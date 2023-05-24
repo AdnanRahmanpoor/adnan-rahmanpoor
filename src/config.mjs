@@ -1,16 +1,14 @@
-import defaultImage from './assets/images/default.png';
 
 const CONFIG = {
   name: 'AdnanRp',
 
-  origin: 'https://astrowind.vercel.app',
+  origin: 'https://adnanrp.pages.dev',
   basePathname: '/',
   trailingSlash: false,
 
-  title: 'AstroWind — Free template for create a website with Astro + Tailwind CSS',
+  title: 'Python, Web3, Data Analytics ',
   description:
-    '🚀 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.',
-  defaultImage: defaultImage,
+    'Personal Blog where Python, Data Analytics and Web3 content will have home.',
 
   defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
@@ -24,7 +22,7 @@ const CONFIG = {
     timeZone: 'UTC',
   }),
 
-  googleAnalyticsId: false, // or "G-XXXXXXXXXX",
+  googleAnalyticsId: "G-7K8WZ9BS1V", // or "G-XXXXXXXXXX",
   googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
 
   blog: {
