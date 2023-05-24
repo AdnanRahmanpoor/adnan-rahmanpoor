@@ -1,0 +1,10 @@
+.blink {
+    animation: blinker 1s none infinite;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
+  
