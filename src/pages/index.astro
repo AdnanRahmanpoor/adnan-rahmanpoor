@@ -9,20 +9,22 @@ import Note from '~/components/widgets/Note.astro';
 import LatestPosts from '~/components/blog/LatestPosts.astro';
 
 
+
 const meta = {
   title: SITE.title,
   description: SITE.description,
   dontUseTitleTemplate: true,
 };
 ---
+<script src="~/components/termynal.js"></script>
 
 <Layout {meta}>
   <!-- Hero Widget ******************* -->
 
-  <Hero image={{ src: import('~/assets/images/hero.png'), alt: 'AstroWind Hero Image' }}>
+  <Hero>
+   
     <Fragment slot="title">
-      <span class="text-accent dark:text-white highlight blink">Welcome</span></Fragment>
-
+      <span class="text-accent dark:text-white highlight">Welcome</span></Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
