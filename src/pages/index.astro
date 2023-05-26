@@ -1,14 +1,11 @@
 ---
 import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/PageLayout.astro';
-
 import "~/components/style.css";
 
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import LatestPosts from '~/components/blog/LatestPosts.astro';
-
-
 
 const meta = {
   title: SITE.title,
@@ -16,13 +13,33 @@ const meta = {
   dontUseTitleTemplate: true,
 };
 ---
-<script src="~/components/termynal.js"></script>
+<script type="module">
+  import * as THREE from '/src/components/custom-js/three.min.js';
+  console.log(THREE)
+</script>
+<script src="~/components/custom-js/vanta.net.min.js"></script>
+<script>
+  VANTA.NET({
+    el: ".py-12",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0x4100fc,
+    backgroundAlpha: 0,
+    points: 20.00,
+    maxDistance: 25.00
+  })
+</script>
+
 
 <Layout {meta}>
   <!-- Hero Widget ******************* -->
-
-  <Hero>
-   
+  
+  <Hero >
     <Fragment slot="title">
       <span class="text-accent dark:text-white highlight">Welcome</span></Fragment>
   </Hero>
@@ -43,5 +60,19 @@ const meta = {
       ''
     ]}
   />
-  
+ 
 </Layout>
+<script src="~/components/custom-js/three.min.js"></script>
+  <script src="~/components/custom-js/vanta.net.min.js"></script>
+  <script>
+    VANTA.NET({
+    el: "div",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00
+  })
+  </script> 
