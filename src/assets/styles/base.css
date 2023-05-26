@@ -37,6 +37,10 @@
   @apply shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-sm dark:bg-slate-900 dark:md:bg-slate-900/90;
 }
 
+#header {
+  @apply dark:bg-slate-900 bg-white
+}
+
 .dropdown:hover .dropdown-menu {
   display: block;
 }

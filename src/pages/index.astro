@@ -14,13 +14,13 @@ const meta = {
 };
 ---
 <script type="module">
-  import * as THREE from '/src/components/custom-js/three.min.js';
+  import * as THREE from '/src/pages/three.min.js';
   console.log(THREE)
 </script>
-<script src="~/components/custom-js/vanta.net.min.js"></script>
+<script type="module" src="/src/pages/vanta.net.min.js"></script>
 <script>
   VANTA.NET({
-    el: ".py-12",
+    el: ".relative",
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
@@ -35,14 +35,12 @@ const meta = {
   })
 </script>
 
-
 <Layout {meta}>
   <!-- Hero Widget ******************* -->
-  
   <Hero >
     <Fragment slot="title">
-      <span class="text-accent dark:text-white highlight">Welcome</span></Fragment>
-  </Hero>
+      <span class="text-accent dark:text-white highlight"><div id="div">Welcome</div></span></Fragment>
+    </Hero>
 
   <!-- Note Widget ******************* -->
 
@@ -62,17 +60,3 @@ const meta = {
   />
  
 </Layout>
-<script src="~/components/custom-js/three.min.js"></script>
-  <script src="~/components/custom-js/vanta.net.min.js"></script>
-  <script>
-    VANTA.NET({
-    el: "div",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00
-  })
-  </script> 
