@@ -7,8 +7,6 @@
       opacity: 0;
     }
 }
-#div {
-  width: 100%;
+.relative {
   height: 100vh;
-  display: block;
 }
