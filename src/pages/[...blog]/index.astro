@@ -36,8 +36,61 @@ const meta = {
 <Layout {meta}>
   <SinglePost post={{ ...post, image: meta.image }} url={url} />
   <ToBlogLink />
-  <div class="mx-auto max-w-4xl">
-  <script src="https://giscus.app/client.js"
+  <div class="giscus px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl"></div>
+  <script>
+
+    const siteTheme = localStorage.theme;
+    console.log(siteTheme)
+    function getGiscusTheme() {
+      const giscusTheme = siteTheme === "light" ? "light" : "dark";
+      return giscusTheme;
+    }
+    
+    function setGiscusTheme() {
+      function sendMessage(message) {
+        const iframe = (document.querySelector('iframe.giscus-frame') as HTMLIFrameElement);
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: getGiscusTheme(),
+        },
+      });
+    }
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      const giscusAttributes = {
+      "src" : "https://giscus.app/client.js",
+      "data-repo":"AdnanRahmanpoor/adnanrp",
+      "data-repo-id":"R_kgDOJm7V2g",
+      "data-category":"Announcements",
+      "data-category-id":"DIC_kwDOJm7V2s4CW0aJ",
+      "data-mapping":"url",
+      "data-strict":"0",
+      "data-reactions-enabled":"1",
+      "data-emit-metadata":"0",
+      "data-input-position":"top",
+      "data-theme":getGiscusTheme(),
+      "data-lang":"en",
+      "crossorigin":"anonymous",
+      "async" : ""
+    };
+    
+      // Dynamically create script tag
+      const giscusScript = document.createElement("script");
+      Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+      document.body.appendChild(giscusScript);
+    
+      // Update giscus theme when theme switcher is clicked
+      const toggle = document.querySelector('#darklightmode');
+      if (toggle) {
+        toggle.addEventListener('click', setGiscusTheme);
+      }
+    });
+  </script>
+  
+  <!-- <script src="https://giscus.app/client.js"
         data-repo="AdnanRahmanpoor/adnanrp"
         data-repo-id="R_kgDOJm7V2g"
         data-category="Announcements"
@@ -51,6 +104,5 @@ const meta = {
         data-lang="en"
         crossorigin="anonymous"
         async>
-  </script>
-  </div>
+  </script> -->
 </Layout>
