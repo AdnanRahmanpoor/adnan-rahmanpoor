@@ -40,9 +40,9 @@ const meta = {
   <script>
 
     function getGiscusTheme() {
-      const siteTheme = localStorage.theme;
-      const giscusTheme = siteTheme === "light" ? "light" : "dark";
-      return giscusTheme;
+      // const siteTheme = localStorage.theme;
+      // const giscusTheme = siteTheme === "light" ? "light" : "dark";
+      return localStorage.theme === "light" ? "light" : "dark";
     }
     
     function setGiscusTheme() {
