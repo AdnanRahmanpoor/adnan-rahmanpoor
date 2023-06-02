@@ -41,8 +41,10 @@ const meta = {
     
     function setGiscusTheme() {
       function getGiscusTheme() {
+        const dark = "/dark.css";
+        const light = "/light.css";
         const siteTheme = localStorage.theme;
-        const giscusTheme = siteTheme === "light" ? "light" : "dark";
+        const giscusTheme = siteTheme === "light" ? light : dark;
         return giscusTheme;
       }
       function sendMessage(message) {
