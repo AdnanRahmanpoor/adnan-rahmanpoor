@@ -38,13 +38,31 @@ const meta = {
   <ToBlogLink />
   <div class="giscus px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl"></div>
   <script>
+    // Get HTML head element
+    var head = document.getElementsByTagName('HEAD')[0];
+    
+    // Create new link Element
+    var darkLink = document.createElement('link');
+    var lightLink = document.createElement('link');
+
+    // set the attributes for link element
+    darkLink.rel = 'stylesheet';
+    lightLink.rel = 'stylesheet';
+
+    darkLink.type = 'text/css';
+    lightLink.type = 'text/css';
+
+    darkLink.href = '/dark.css';
+    lightLink.href = '/light.css';
+
+    // Append link element to HTML head
+    head.appendChild(darkLink);
+    head.appendChild(lightLink);
     
     function setGiscusTheme() {
       function getGiscusTheme() {
-        const dark = "/dark.css";
-        const light = "/light.css";
         const siteTheme = localStorage.theme;
-        const giscusTheme = siteTheme === "light" ? light : dark;
+        const giscusTheme = siteTheme === "light" ? lightLink : darkLink;
         return giscusTheme;
       }
       function sendMessage(message) {
