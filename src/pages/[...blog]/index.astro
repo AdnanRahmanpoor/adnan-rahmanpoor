@@ -38,14 +38,13 @@ const meta = {
   <ToBlogLink />
   <div class="giscus px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl"></div>
   <script>
-
-    function getGiscusTheme() {
-      // const siteTheme = localStorage.theme;
-      // const giscusTheme = siteTheme === "light" ? "light" : "dark";
-      return localStorage.theme === "light" ? "light" : "dark";
-    }
     
     function setGiscusTheme() {
+      function getGiscusTheme() {
+        const siteTheme = localStorage.theme;
+        const giscusTheme = siteTheme === "light" ? "light" : "dark";
+        return giscusTheme;
+      }
       function sendMessage(message) {
         const iframe = (document.querySelector('iframe.giscus-frame') as HTMLIFrameElement);
         if (!iframe) return;
@@ -70,7 +69,7 @@ const meta = {
       "data-reactions-enabled":"1",
       "data-emit-metadata":"0",
       "data-input-position":"top",
-      "data-theme":getGiscusTheme(),
+      "data-theme":setGiscusTheme(),
       "data-lang":"en",
       "crossorigin":"anonymous",
       "async" : ""
