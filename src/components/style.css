@@ -1,12 +1,30 @@
 .blink {
-    animation: blinker 1s none infinite;
+  animation: blinker 1s none infinite;
 }
 
 @keyframes blinker {
-    50% {
-      opacity: 0;
-    }
+  50% {
+    opacity: 0;
+  }
 }
+
+
 #custom-div {
+  overflow: hidden;
   height: 100vh;
+  position: relative;
+}
+
+video {
+  position: absolute;
+}
+
+#overlay {
+  content: "";
+  background: rgb(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

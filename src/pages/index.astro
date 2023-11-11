@@ -1,7 +1,7 @@
 ---
 import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/PageLayout.astro';
-import "~/components/style.css";
+import '~/components/style.css';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
@@ -12,34 +12,18 @@ const meta = {
   description: SITE.description,
   dontUseTitleTemplate: true,
 };
+
+const textHero = '<h2>Hola</h2>';
 ---
-<script type="module">
-  import * as THREE from '/three.min.js';
-  console.log(THREE)
-</script>
-<script type="module" src="/vanta.net.min.js"></script>
-<script>
-  VANTA.NET({
-    el: "#custom-div",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0xff004f,
-    backgroundAlpha: 0,
-  })
-</script>
 
 <Layout {meta}>
   <!-- Hero Widget ******************* -->
-  <Hero >
+  <Hero>
     <Fragment slot="title">
-      <span class="text-accent dark:text-white highlight"><div id="div">Welcome</div></span></Fragment>
-    </Hero>
-
+      <span class="text-accent dark:text-white highlight"><div id="div">Welcome</div></span>
+    </Fragment>
+    <Fragment set:html={textHero} />
+  </Hero>
   <!-- Note Widget ******************* -->
 
   <Note />
@@ -52,9 +36,6 @@ const meta = {
     title="Find out more content in our Blog"
     information={`This blog will contain posts about Python and Web3. It will include tutorials posts and any interesting findings about them.
                 `}
-    postIds={[
-      ''
-    ]}
+    postIds={['']}
   />
- 
 </Layout>
