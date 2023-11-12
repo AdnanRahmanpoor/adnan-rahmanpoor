@@ -1,18 +1,15 @@
 ---
-import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/PageLayout.astro';
 import "~/components/style.css";
 
 
 
-const meta = {
-  title: SITE.title,
-  description: SITE.description,
-  dontUseTitleTemplate: true,
+const metadata = {
+  title: 'About Us',
 };
 ---
 
-<Layout {meta}>
+<Layout metadata={metadata}>
     <h1>About Page</h1>
     <p>.</p>
     <p>.</p>
