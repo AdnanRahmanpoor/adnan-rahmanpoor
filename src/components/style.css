@@ -17,6 +17,29 @@
 
 video {
   position: absolute;
+  object-fit: cover;
+}
+
+@media screen and (orientation: portrait) {
+  video {
+    position: absolute;
+    height: 100vh !important;
+    width: auto !important;
+    /* left: 50%; */
+    object-fit: cover;
+    top: 0;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  video {
+    position: absolute;
+    height: 100vh !important;
+    width: auto !important;
+    /* left: 50%; */
+    object-fit: cover;
+    top: 0;
+  }
 }
 
 #overlay {
