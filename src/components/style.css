@@ -8,6 +8,10 @@
   }
 }
 
+.custom {
+  color: rgb(229 236 246);
+}
+
 
 #custom-div {
   overflow: hidden;
