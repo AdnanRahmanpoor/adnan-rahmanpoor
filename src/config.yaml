@@ -63,10 +63,10 @@ apps:
 analytics:
   vendors:
     googleAnalytics:
-      id: "G-7K8WZ9BS1V"  # or "G-XXXXXXXXXX"
+      id: 'G-7K8WZ9BS1V' # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'dark' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
   tokens:
     default:
