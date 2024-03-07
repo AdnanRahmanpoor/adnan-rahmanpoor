@@ -1,7 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 
-import Image from '~/components/common/Image.astro';
+import {Image} from 'astro:assets';
+
 import PostTags from '~/components/blog/Tags.astro';
 import SocialShare from '~/components/common/SocialShare.astro';
 
@@ -17,6 +18,8 @@ export interface Props {
 
 const { post, url } = Astro.props;
 const { Content } = post;
+
+
 ---
 
 <section class="py-8 sm:py-16 lg:py-20 mx-auto">
