@@ -3,7 +3,7 @@ publishDate: 2023-03-09 01:25:40
 title: 'Day 2 of #100daysofphp: Journey Continues'
 excerpt: Diving into PHP. Day 2.
 image: ~/assets/images/post-2/php.jpg
-category: Introduction
+category: PHP
 tags:
   - Programming
   - PHP

@@ -3,7 +3,7 @@ publishDate: 2023-03-07 10:45:40
 title: 'Day 1 of #100daysofphp: My Journey Begins'
 excerpt: Diving into PHP. Day 1.
 image: ~/assets/images/post-2/php.jpg
-category: Introduction
+category: PHP
 tags:
   - Programming
   - PHP
