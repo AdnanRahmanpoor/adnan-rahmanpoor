@@ -36,6 +36,7 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
               alt={post.title}
               loading="lazy"
               decoding="async"
+              inferSize
             />
           )}
         </div>
