@@ -42,6 +42,11 @@ export default defineConfig({
             required: true,
           },
           {
+            name: 'image',
+            type: 'image',
+            label: 'post image'
+          },
+          {
             type: "rich-text",
             name: "body",
             label: "Body",
