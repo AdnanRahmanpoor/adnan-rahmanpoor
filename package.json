@@ -4,7 +4,7 @@
   "version": "1.0.0-beta.6",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "dev": "tinacms dev -c \"astro dev\"",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -23,6 +23,7 @@
     "limax": "4.1.0",
     "lodash.merge": "^4.6.2",
     "sharp": "^0.33.2",
+    "tinacms": "^2.2.8",
     "unpic": "^3.10.0"
   },
   "devDependencies": {
@@ -32,7 +33,9 @@
     "@iconify-json/flat-color-icons": "^1.1.7",
     "@iconify-json/tabler": "^1.1.91",
     "@tailwindcss/typography": "^0.5.10",
+    "@tinacms/cli": "^1.6.8",
     "@types/lodash.merge": "^4.6.7",
+    "@types/node": "^22.7.4",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
     "astro-compress": "^2.0.15",
