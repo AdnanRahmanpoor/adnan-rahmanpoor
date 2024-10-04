@@ -1,6 +1,6 @@
 ---
 title: 'Test post from TinaCMS '
-image: /src/assets/images/DayTrackerR.png
+image: ''
 ---
 
 # Hello, A test post from TinaCMS
