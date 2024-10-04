@@ -21,8 +21,8 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "~/_astro/",
-      publicFolder: "~/_astro/",
+      mediaRoot: "~/src/assets/images/",
+      publicFolder: "public",
       static: false,
     },
   },
@@ -35,6 +35,11 @@ export default defineConfig({
         path: "src/content/post",
         fields: [
           {
+            type: "datetime",
+            name: "publishDate",
+            label: "Date"
+          },
+          {
             type: "string",
             name: "title",
             label: "Title",
@@ -42,9 +47,24 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "string",
+            name: "excerpt",
+            label: "excerpt",
+          },
+          {
             name: 'image',
             type: 'image',
             label: 'post image'
+          },
+          {
+            type: "string",
+            name: "category",
+            label: "Category",
+          },
+          {
+            type: "string",
+            name: "tags",
+            label: "Tags",
           },
           {
             type: "rich-text",
