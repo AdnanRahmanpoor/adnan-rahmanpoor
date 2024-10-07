@@ -31,9 +31,9 @@ def get_latest_post():
 # post tweet
 
 def tweet_new_post(post_title, post_url):
-    post_title, post_url = get_latest_post()
     tweet = f"New Post: {post_title} - Read more at {post_url}"
 
     api.update_status(tweet)
 
-tweet_new_post()
+post_title, post_url = get_latest_post()
+tweet_new_post(post_title, post_url)
