@@ -14,7 +14,7 @@ auth = tweepy.OAuth1UserHandler(
 api = tweepy.API(auth)
 
 def get_latest_post():
-    post_files = glob.glob("src/content/*.md")
+    post_files = glob.glob("src/content/post/*.md")
     latest_post = max(post_files, key=os.path.getctime)
 
     with open(latest_post, 'r') as f:
