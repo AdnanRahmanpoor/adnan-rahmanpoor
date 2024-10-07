@@ -5,10 +5,10 @@ import re
 
 # auth
 auth = tweepy.OAuth1UserHandler(
-    os.getenv('TWITTER_API_KEY'),
-    os.getenv('TWITTER_API_SECRET_KEY'),
-    os.getenv('TWITTER_ACCESS_TOKEN'),
-    os.getenv('TWITTER_ACCESS_TOKEN_SECRET')
+    os.getenv('consumer_key'),
+    os.getenv('consumer_secret'),
+    os.getenv('access_token'),
+    os.getenv('token_secret')
 )
 
 api = tweepy.API(auth)
