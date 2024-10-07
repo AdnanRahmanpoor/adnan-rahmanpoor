@@ -24,7 +24,7 @@ def get_latest_post():
                 break
 
             post_slug = re.sub(r'[^a-zA-Z0-9-]', post_title.lower().replace('','-'))
-            post_url = f'https://adnanrp.pages.dev/blog/{post_slug}'
+            post_url = f'https://adnanrp.pages.dev/{post_slug}'
 
             return post_title, post_url
 
