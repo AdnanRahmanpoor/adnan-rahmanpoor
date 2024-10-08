@@ -16,7 +16,7 @@ jobs:
     - name: Check Deployment Status
       id: check_deployment
       run: |
-        DEPLOYMENT_STATUS=$(curl -s -X GET "https://api.cloudflare.com/client/v4/accounts/YOUR_ACCOUNT_ID/pages/projects/YOUR_PROJECT_NAME/deployments" 
+        DEPLOYMENT_STATUS=$(curl -s -X GET "https://api.cloudflare.com/client/v4/accounts/8d5c897f2a678d10a534cee0f9cecb26/pages/projects/adnanrp/deployments" 
         -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" | jq -r '.result[0].status')
         
         echo "Deployment Status: $DEPLOYMENT_STATUS"
