@@ -21,8 +21,8 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "_astro",
-      publicFolder: "",
+      mediaRoot: "",
+      publicFolder: "public",
       static: false,
     },
   },
