@@ -3,17 +3,14 @@ import os
 import glob
 import re
 
-# auth
-auth = tweepy.OAuth1UserHandler(
+# setting api to 2.0
+api = tweepy.Client(
     os.getenv('bearer_token'),
     os.getenv('consumer_key'),
     os.getenv('consumer_secret'),
     os.getenv('access_token'),
     os.getenv('token_secret')
-)
-
-# setting api to 2.0
-api = tweepy.Client(auth)
+    )
 
 def get_latest_post():
     # Get the latest post based on creation time
