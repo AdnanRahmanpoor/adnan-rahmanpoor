@@ -11,7 +11,7 @@ auth = tweepy.OAuth1UserHandler(
     os.getenv('access_token'),
     os.getenv('token_secret')
 )
-
+newapi = os # random for test
 api = tweepy.Client(auth)
 
 def get_latest_post():
