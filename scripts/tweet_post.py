@@ -5,11 +5,11 @@ import re
 
 # auth
 auth = tweepy.OAuth1UserHandler(
-    os.getenv('bearer_token'),
-    os.getenv('consumer_key'),
-    os.getenv('consumer_secret'),
-    os.getenv('access_token'),
-    os.getenv('token_secret')
+    str(os.getenv('bearer_token')),
+    str(os.getenv('consumer_key')),
+    str(os.getenv('consumer_secret')),
+    str(os.getenv('access_token')),
+    str(os.getenv('token_secret'))
 )
 
 api = tweepy.Client(auth)
@@ -42,7 +42,7 @@ def get_latest_post():
 def tweet_new_post(post_title, post_url):
     if post_title and post_url:
         tweet = f"New Post: {post_title} - Read more at {post_url}"
-        api.create_tweet(text=tweet, user_auth=False)
+        api.create_tweet(text=tweet)
     else:
         print("No post found to tweet.")
 
