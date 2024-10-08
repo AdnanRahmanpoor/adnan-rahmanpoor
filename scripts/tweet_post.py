@@ -42,7 +42,7 @@ def get_latest_post():
 def tweet_new_post(post_title, post_url):
     if post_title and post_url:
         tweet = f"New Post: {post_title} - Read more at {post_url}"
-        api.create_tweet(text=tweet)
+        api.create_tweet(text=tweet, user_auth=False)
     else:
         print("No post found to tweet.")
 
