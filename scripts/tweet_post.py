@@ -12,6 +12,7 @@ auth = tweepy.OAuth1UserHandler(
     os.getenv('token_secret')
 )
 
+# setting api to 2.0
 api = tweepy.Client(auth)
 
 def get_latest_post():
