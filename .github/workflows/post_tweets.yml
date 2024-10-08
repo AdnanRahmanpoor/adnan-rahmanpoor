@@ -12,19 +12,11 @@ jobs:
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
-
-    - name: Check Deployment Status
-      id: check_deployment
+      
+    - name: Wait for Clouflare build to complete
       run: |
-        DEPLOYMENT_STATUS=$(curl -s -X GET "https://api.cloudflare.com/client/v4/accounts/8d5c897f2a678d10a534cee0f9cecb26/pages/projects/adnanrp/deployments" 
-        -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" | jq -r '.result[0].status')
-        
-        echo "Deployment Status: $DEPLOYMENT_STATUS"
-        
-        if [[ "$DEPLOYMENT_STATUS" != "active" ]]; then
-          echo "Deployment not active yet."
-          exit 1 # Stop the workflow if not active
-        fi
+        echo "Waiting 3 mins for cloudflare to finish building..."
+        sleep 180 # wait for 180 seconds
 
     - name: Set up Python
       uses: actions/setup-python@v2
