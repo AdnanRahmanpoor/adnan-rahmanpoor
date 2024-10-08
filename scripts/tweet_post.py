@@ -23,8 +23,8 @@ def get_latest_post():
     with open(latest_post, 'r') as f:
         for line in f:
             # Find the first line starting with '#' (post title)
-            if line.startswith('#'):
-                post_title = line.strip('#').strip()
+            if line.startswith('title:'):
+                post_title = line.strip('title:').strip()
                 # Create slug from post title
                 post_slug = re.sub(r'[^a-zA-Z0-9-]', '', post_title.lower().replace(' ', '-'))
                 post_url = f'https://adnanrp.pages.dev/{post_slug}'
