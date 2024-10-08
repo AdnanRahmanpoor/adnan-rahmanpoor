@@ -5,11 +5,11 @@ import re
 
 # auth
 auth = tweepy.OAuth1UserHandler(
-    str(os.getenv('bearer_token')),
-    str(os.getenv('consumer_key')),
-    str(os.getenv('consumer_secret')),
-    str(os.getenv('access_token')),
-    str(os.getenv('token_secret'))
+    os.getenv('bearer_token'),
+    os.getenv('consumer_key'),
+    os.getenv('consumer_secret'),
+    os.getenv('access_token'),
+    os.getenv('token_secret')
 )
 
 api = tweepy.Client(auth)
