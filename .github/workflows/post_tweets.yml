@@ -13,6 +13,19 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2
 
+    - name: Check Deployment Status
+      id: check_deployment
+      run: |
+        DEPLOYMENT_STATUS=$(curl -s -X GET "https://api.cloudflare.com/client/v4/accounts/YOUR_ACCOUNT_ID/pages/projects/YOUR_PROJECT_NAME/deployments" 
+        -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" | jq -r '.result[0].status')
+        
+        echo "Deployment Status: $DEPLOYMENT_STATUS"
+        
+        if [[ "$DEPLOYMENT_STATUS" != "active" ]]; then
+          echo "Deployment not active yet."
+          exit 1 # Stop the workflow if not active
+        fi
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
