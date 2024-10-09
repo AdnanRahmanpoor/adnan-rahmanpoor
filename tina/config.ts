@@ -62,9 +62,14 @@ export default defineConfig({
             label: "Category",
           },
           {
-            type: "string",
-            name: "tags",
-            label: "Tags",
+            type: 'string',
+            label: 'Tags',
+            name: 'frontmatter_tags',
+            description: 'Tags for this post',
+            list: true,
+            ui: {
+              component: 'tags',
+            }
           },
           {
             type: "rich-text",

@@ -12,12 +12,10 @@ export interface Props {
 }
 
 const { tags, class: className = 'text-sm', title = undefined, isCategory = false } = Astro.props;
-
-const formattedTags = typeof tags === 'string' ? tags.split(',').map(tag => tag.trim()) : tags;
 ---
 
 {
-  formattedTags && Array.isArray(tags) && (
+  tags && Array.isArray(tags) && (
     <>
       <>
         {title !== undefined && <span class="align-super font-normal underline underline-offset-4 decoration-2 dark:text-slate-400">{title}</span>}
