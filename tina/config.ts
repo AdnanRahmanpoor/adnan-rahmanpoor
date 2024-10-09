@@ -64,7 +64,7 @@ export default defineConfig({
           {
             type: 'string',
             label: 'Tags',
-            name: 'frontmatter_tags',
+            name: 'tags',
             nameOverride: 'tags',
             description: 'Tags for this post',
             list: true,
