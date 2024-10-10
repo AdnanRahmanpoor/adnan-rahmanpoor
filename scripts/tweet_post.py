@@ -29,43 +29,37 @@ def generate_slug(title):
 
     return slug
 
-def get_latest_post():
+def get_all_posts():
     # Get the latest post based on creation time
     post_files = glob.glob("src/content/post/*.md")
-    latest_post = max(post_files, key=os.path.getctime)
+    posts = []
 
-    post_title = None
-    post_url = None
-    post_slug = None
+    for post_file in post_files:    
+        with open(post_file, 'r') as f:
+            post_title = None
+            for line in f:
+                # Find the first line starting with '#' (post title)
+                if line.startswith('title:'):
+                    post_title = line.replace('title:', '').strip()
+                    # Create slug from post title
+                    post_slug = generate_slug(post_title)
+                    post_url = f'https://adnanrp.pages.dev/{post_slug}'
+                    break  # Exit the loop after finding the title
 
-    with open(latest_post, 'r') as f:
-        for line in f:
-            # Find the first line starting with '#' (post title)
-            if line.startswith('title:'):
-                post_title = line.replace('title:', '').strip()
-                # Create slug from post title
-                post_slug = generate_slug(post_title)
-                post_url = f'https://adnanrp.pages.dev/{post_slug}'
-                break  # Exit the loop after finding the title
+    return posts
 
-    # Ensure post_title and post_url are initialized properly
-    if post_title and post_url and post_slug:
-        return post_title, post_url, post_slug
-    else:
-        return None, None, None
-
-def get_last_tweeted():
+def get_tweeted_slugs():
     """Read slug of the last tweeted post from the file"""
 
     if os.path.exists(last_tweeted_file):
         with open(last_tweeted_file, 'r') as f:
-            return f.read().strip()
-    return None
+            return set(f.read().splitlines())
+    return set()
 
 def set_last_tweeted(post_slug):
     """Write the slug of the last tweeted post to the file"""
     with open(last_tweeted_file, 'w') as f:
-        f.write(post_slug)
+        f.write('\n'.join(post_slug))
 
 
 # Post tweet
@@ -80,13 +74,15 @@ def tweet_new_post(post_title, post_url):
     else:
         print("No post found to tweet.")
 
-# Get the latest post title and URL
-post_title, post_url, post_slug = get_latest_post()
-last_tweeted = get_last_tweeted()
 
-if post_slug and post_slug != last_tweeted:
-    tweet_new_post(post_title, post_url)
-    set_last_tweeted(post_slug)
-else:
-    print("No new post to tweet.")
+posts = get_all_posts()
+tweeted_slugs = get_tweeted_slugs()
+new_tweeted_slugs = set()
 
+for post_title, post_url, post_slug in posts:
+    if post_slug not in tweeted_slugs:
+        tweet_new_post(post_title, post_url)
+        new_tweeted_slugs.add(post_slug)
+
+tweeted_slugs.update(new_tweeted_slugs)
+set_last_tweeted(tweeted_slugs)
