@@ -33,7 +33,6 @@ def get_all_posts():
     """Retrieve all posts and their titles, URLs, and slugs."""
     post_files = glob.glob("src/content/post/*.md")
     posts = []
-    print(f"Posts from get_all_Posts: {posts}")
 
     for post_file in post_files:    
         with open(post_file, 'r') as f:
@@ -55,7 +54,7 @@ def get_tweeted_slugs():
     """Read slugs of the previously tweeted posts from the file."""
     if os.path.exists(last_tweeted_file):
         with open(last_tweeted_file, 'r') as f:
-            print(last_tweeted_file)
+            print(f)
             return set(f.read().splitlines())  # Return a set of slugs for quick lookup
     return set()
 
@@ -64,7 +63,7 @@ def append_new_tweeted_slugs(new_slugs):
     with open(last_tweeted_file, 'a') as f:
         for slug in new_slugs:
             f.write(f'{slug}\n')
-            print(f"Tweeted slugs: {last_tweeted_file}")
+            print(f"Tweeted slugs: {f}")
 
 
 # Post tweet
