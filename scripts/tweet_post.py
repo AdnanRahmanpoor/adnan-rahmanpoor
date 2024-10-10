@@ -5,7 +5,7 @@ import re
 
 last_tweeted_file = 'last_tweeted.txt'
 
-# Setting API to 2.0
+
 api = tweepy.Client(
     os.getenv('bearer_token'),
     os.getenv('consumer_key'),
@@ -26,12 +26,14 @@ def generate_slug(title):
     slug = slug.replace(' ', '-')
     slug = re.sub(r'[^a-z0-9-]', '', slug)
     slug = re.sub(r'-+', '-', slug)
+    print(f"Slug from generate slug func: {slug}")
     return slug
 
 def get_all_posts():
     """Retrieve all posts and their titles, URLs, and slugs."""
     post_files = glob.glob("src/content/post/*.md")
     posts = []
+    print(f"Posts from get_all_Posts: {posts}")
 
     for post_file in post_files:    
         with open(post_file, 'r') as f:
@@ -44,6 +46,7 @@ def get_all_posts():
                     post_slug = generate_slug(post_title)
                     post_url = f'https://adnanrp.pages.dev/{post_slug}'
                     posts.append((post_title, post_url, post_slug))
+                    print(f"Posts: {posts}")
                     break  # Exit the loop after finding the title
 
     return posts
@@ -52,13 +55,16 @@ def get_tweeted_slugs():
     """Read slugs of the previously tweeted posts from the file."""
     if os.path.exists(last_tweeted_file):
         with open(last_tweeted_file, 'r') as f:
+            print(last_tweeted_file)
             return set(f.read().splitlines())  # Return a set of slugs for quick lookup
     return set()
 
-def set_tweeted_slugs(tweeted_slugs):
+def append_new_tweeted_slugs(new_slugs):
     """Write the slugs of all tweeted posts to the file."""
-    with open(last_tweeted_file, 'w') as f:
-        f.write('\n'.join(tweeted_slugs))  # Join the slugs by newlines
+    with open(last_tweeted_file, 'a') as f:
+        for slug in new_slugs:
+            f.write(f'{slug}\n')
+            print(f"Tweeted slugs: {last_tweeted_file}")
 
 
 # Post tweet
@@ -90,6 +96,6 @@ for post_title, post_url, post_slug in posts:
         tweet_new_post(post_title, post_url)
         new_tweeted_slugs.add(post_slug)
 
-# Update the slugs file with newly tweeted slugs
-tweeted_slugs.update(new_tweeted_slugs)
-set_tweeted_slugs(tweeted_slugs)
+# Append the slugs file with newly tweeted slugs
+if new_tweeted_slugs:
+    append_new_tweeted_slugs(new_tweeted_slugs)
